@@ -1,0 +1,13 @@
+SVN2FTP
+=======
+
+Configuration
+-------------
+Create a new .INI file like the one in projects/sample.ini.
+You can leave the 'password' setting empty to force a prompt.
+
+Usage
+-----
+cd bin
+php svn2ftp.php -c ../projects/project.ini -r 175:HEAD
+php svn2ftp.php -c ../projects/project.ini -r 163
