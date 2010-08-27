@@ -1,2 +1,2 @@
 @echo off
-php svn2ftp.php %*
+php %~dp0\svn2ftp.php %*

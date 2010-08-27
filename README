@@ -1,13 +1,30 @@
 SVN2FTP
 =======
 
+-------------
 Configuration
 -------------
-Create a new .INI file like the one in projects/sample.ini.
-You can leave the 'password' setting empty to force a prompt.
+Create a new .INI file like "projects/sample.ini".
 
-Usage
------
-cd bin
+-------------
+Usage Windows
+-------------
+cd C:\Your\Path\to\svn2ftp\bin
+svn2ftp -c ../projects/project.ini -r 175:HEAD
+svn2ftp -c ../projects/project.ini -r 163
+
+If you did not add the PHP directory to you PATH
+environment variable, you've to use "php svn2ftp.php"
+instead of "svn2ftp".
+
+-----------
+Usage Linux
+-----------
+cd /your/path/to/svn2ftp/bin
 php svn2ftp.php -c ../projects/project.ini -r 175:HEAD
 php svn2ftp.php -c ../projects/project.ini -r 163
+
+----
+Hint
+----
+Add the "bin" directory to your PATH environment variable.
