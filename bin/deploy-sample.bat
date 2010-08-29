@@ -1,2 +1,2 @@
 @echo off
-svn2ftp -c %~dp0\..\projects\sample.ini -r %1
+svn2ftp -c %~dp0\..\sample.ini -r %1
