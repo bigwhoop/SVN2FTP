@@ -1,6 +1,9 @@
 TODO
 ====
 
+ - Split presentation from logic in BigWhoop\SVN2FTP::runCli()/BigWhoop\SVN2FTP->run()
+  - Move the whole CLI communication into a separate class?!
+  - Or add some event/plugin management?!
  - Unit tests
  - Git support
  - Phar support
