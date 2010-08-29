@@ -6,7 +6,7 @@ use BigWhoop\SVN2FTP\FTP;
 
 class SVN2FTP
 {
-    const VERSION = '1.0.0-alpha';
+    const VERSION = '1.0.0-beta';
     
     /**
      * @var array
@@ -190,13 +190,15 @@ class SVN2FTP
                 throw new SVN2FTP\Exception('Config file "' . $config . '" seems to be a corrupted .INI file.');
             }
         } elseif (!is_array($config)) {
-            throw new SVN2FTP\Exception('First argument must either be an array or a string specifying the path to a .INI config file.');
+            throw new SVN2FTP\Exception('Argument "--config" is invalid.');
         }
         
         $this->_config = SVN2FTP\Config::merge($this->_config, $config);
         
         if (empty($revision)) {
             $revision = 'HEAD';
+        } elseif (!preg_match('/^(\d+:(\d+|HEAD)|(\d+|HEAD))$/i', trim($revision))) {
+            throw new SVN2FTP\Exception('Argument "--revision" is invalid.');
         }
         
         $this->_revision = (string)$revision;
