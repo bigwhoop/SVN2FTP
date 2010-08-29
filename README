@@ -19,8 +19,8 @@ instead of "svn2ftp".
 
 Tip: If you add the "bin" directory to your PATH
      environment variable you're able to use
-	 "svn2ftp" without switching to the SVN2FTP
-	 "bin" directory. :]
+     "svn2ftp" without switching to the SVN2FTP
+     "bin" directory. :]
 
 -----------
 Usage Linux
