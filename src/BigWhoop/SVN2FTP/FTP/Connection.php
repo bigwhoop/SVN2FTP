@@ -50,6 +50,11 @@ class Connection
         if (!@ftp_login($this->_handle, $this->_config['user'], $this->_config['password'])) {
             throw new LoginFailedException("Could not login on $host:$port using user {$this->_config['user']}.");
         }
+
+        // Enter passive mode
+        if (!@ftp_pasv($this->_handle, true)) {
+            throw new ConnectionFailedException("Could not enter passive mode.");
+        }
         
         return $this;
     }
@@ -141,7 +146,8 @@ class Connection
         $this->changeDirectory($remoteDirectory);
         
         if (!@ftp_put($this->_handle, $remoteFileName, $localPath, FTP_BINARY)) {
-            throw new Exception('Failed upload file "' . $localPath . '".');
+            $error = error_get_last();
+            throw new Exception('Failed to upload file "' . $localPath . '": ' . $error['message']);
         }
         
         return $this;
